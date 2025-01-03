@@ -3,6 +3,7 @@ import time
 import importlib.util
 import warnings
 import os
+import sys
 import pandas as pd
 import pyomo.opt as opt
 from tsam.timeseriesaggregation import TimeSeriesAggregation
@@ -476,7 +477,7 @@ def mgaOptimize(
         if writeSolutionsasExcels:
             fn.utils.output("\nWriting optimization output to Excel files\n", esM.verbose, 0)
 
-            outdir = os.path.join(os.path.dirname(os.path.abspath(__file__)), "OutputData")
+            outdir = os.path.join(os.path.dirname(os.path.abspath(sys.argv[0])), "OutputData")
             print(outdir)
             if not os.path.exists(outdir):
                 os.mkdir(outdir)
