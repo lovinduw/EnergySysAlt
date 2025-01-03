@@ -1,0 +1,80 @@
+[build-system]
+requires = ["setuptools>=61.0.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+
+[project]
+name = "energysysalt"
+version = "0.0.1"
+description = "Model for integrated energy systems assessment in ETHOS.FINE providing modeling to generate alternative (MGA) solutions"
+readme = "README.md"
+authors = [
+{ name = "Lovindu Wijesinghe", email = "l.wijesinghe@fz-juelich.de" },
+]
+maintainers = [
+    { name = "Lovindu Wijesinghe", email = "l.wijesinghe@fz-juelich.de" },
+]
+
+keywords = ["energy assesment", "energy system", "optimization"]
+
+dependencies = [
+    "geopandas<1",
+    "openpyxl<4",
+    "matplotlib<4",
+    "xlrd<3",
+    "pyomo<7",
+    "numpy<2",
+    "pandas>=2,<3",
+    "scipy<2",
+    "scikit-learn>=1.2,<2",
+    "xarray<=2024.3",
+    "rasterio<2",
+    "netcdf4<2",
+    "tsam",
+    "pwlf<3",
+    "psutil<6",
+    "gurobi-logtools<4",
+    "fine==2.3.2",
+]
+
+requires-python = ">=3.10,<3.13"
+
+[tool.setuptools.packages]
+find = { include = ["energysysalt", "energysysalt.*"] }
+
+[project.optional-dependencies]
+develop = [
+    "sphinx<8",
+    "sphinx_rtd_theme<3",
+    "myst-parser<3",
+    "pytest<9",
+    "pytest-cov<5",
+    "pytest-xdist<4",
+    "nbval<1",
+    "ruff<1",
+]
+
+#Configureation options
+# https://docs.pytest.org/en/7.1.x/reference/reference.html#configuration-options
+[tool.pytest.ini_options]
+testpaths = ["test"]
+console_output_style = "progress"
+# How to configure Filterwarning:
+# https://docs.python.org/3/library/warnings.html#warning-filter
+# action:message:category:module:line
+# Omit a field by add ing ":" for each omitted field
+# Actions are: "default"
+# "error", "ignore", "always", "module", "once"
+filterwarnings = []
+
+[project.urls]
+homepage = "https://www.fz-juelich.de/de/iek/iek-3/forschung/open-source/fine"
+repository = "https://github.com/FZJ-IEK3-VSA/FINE"
+
+[tool.ruff]
+extend-include = ["*.ipynb"]
+
+[tool.ruff.lint]
+ignore = [
+    "F403", # ‘from module import *’ used; unable to detect undefined names
+]
