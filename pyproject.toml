@@ -5,7 +5,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "energysysalt"
-version = "0.0.1"
+version = "0.0.2"
 description = "Model for integrated energy systems assessment in ETHOS.FINE providing modeling to generate alternative (MGA) solutions"
 readme = "README.md"
 authors = [
