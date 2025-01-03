@@ -7,7 +7,7 @@ import pandas as pd
 import pyomo.opt as opt
 from tsam.timeseriesaggregation import TimeSeriesAggregation
 import fine as fn
-from optimizationProblem import declareMGAOptimizationProblem
+from energysysalt.optimizationProblem import declareMGAOptimizationProblem
 
 def optimalvalues(esM, iteration):
 
