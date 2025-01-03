@@ -7,9 +7,9 @@ import pandas as pd
 import pyomo.opt as opt
 from tsam.timeseriesaggregation import TimeSeriesAggregation
 import fine as fn
-from optimizationProblem import declareMGAOptimizationProblem
+from energysysalt.optimizationProblem import declareMGAOptimizationProblem
 
-def optimalvalues(esM, iteration):
+def optimalValues(esM, iteration):
 
     esM.solutions[iteration] = {}
     esM.optimalValueParameters = [
@@ -139,7 +139,7 @@ def mgaOptimize(
     esM.iterations = iterations
     esM.slack = slack
 
-    optimalvalues(esM, 0)
+    optimalValues(esM, 0)
 
     if esM.solutions[0] is None:
         raise TypeError(
@@ -411,10 +411,10 @@ def mgaOptimize(
                     """
 
                     if sense == "minimize":
-                        esM.optimalValues(iteration)
+                        optimalValues(esM,iteration)
                         # self.solutions[iteration] = getattr(self.pyM, "op_" + "srcSnk").get_values() 
                     else:
-                        esM.optimalValues(esM.iterations + iteration)
+                        optimalValues(esM, esM.iterations + iteration)
                         # self.solutions[self.iterations + iteration] = getattr(self.pyM, "op_" + "srcSnk").get_values() 
                 print(esM.pyM.optimalCostConstraint.display())###################################
             iteration +=1

@@ -9,7 +9,7 @@ dependencies:
   - pip
   - geopandas<=0.14.4
   - glpk
-  - fine==2.3.4
+  - fine==2.3.7
   - openpyxl<=3.1.5
   - matplotlib<=3.9.2
   - xlrd<=2.0.1
