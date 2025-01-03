@@ -34,7 +34,7 @@ dependencies = [
     "pwlf<3",
     "psutil<6",
     "gurobi-logtools<4",
-    "fine==2.3.2",
+    "fine==2.3.4",
 ]
 
 requires-python = ">=3.10,<3.13"
