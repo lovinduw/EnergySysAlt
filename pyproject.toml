@@ -5,7 +5,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "energysysalt"
-version = "0.0.3"
+version = "0.0.1"
 description = "Model for integrated energy systems assessment in ETHOS.FINE providing modeling to generate alternative (MGA) solutions"
 readme = "README.md"
 authors = [
@@ -34,7 +34,7 @@ dependencies = [
     "pwlf<3",
     "psutil<6",
     "gurobi-logtools<4",
-    "fine",
+    "fine==2.3.7",
 ]
 
 requires-python = ">=3.10,<3.13"

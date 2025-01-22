@@ -5,6 +5,7 @@ import warnings
 import os
 import sys
 import pandas as pd
+import concurrent.futures
 import pyomo.opt as opt
 from tsam.timeseriesaggregation import TimeSeriesAggregation
 import fine as fn
@@ -412,7 +413,7 @@ def mgaOptimize(
                     """
 
                     if sense == "minimize":
-                        optimalValues(esM, iteration)
+                        optimalValues(esM,iteration)
                         # self.solutions[iteration] = getattr(self.pyM, "op_" + "srcSnk").get_values() 
                     else:
                         optimalValues(esM, esM.iterations + iteration)
@@ -456,6 +457,7 @@ def mgaOptimize(
         fn.utils.output("\nIdentifying maximally different solutions....\n", esM.verbose, 0)
         for k in range(esM.iterations):
             previous_max = 0
+            highest_distance = 0
             # for i in range(2*self.iterations):
             for i in range(len(esM.solutions)):
                 get_max = supremum(i)
