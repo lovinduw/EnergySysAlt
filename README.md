@@ -18,4 +18,3 @@ This repository includes an optimization model which can provide a modeling to g
 3. Install fine library from GitHub with all the dependencies\
    \
   pip install git+https://github.com/lovinduw/EnergySysAlt#egg=energysysalt
-
